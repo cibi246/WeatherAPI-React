@@ -80,36 +80,36 @@ class App extends React.Component {
       console.log(list);
 
       this.setState({
-        date: list.list[0].dt_txt,
+        date: list.forecast.forecastday[0].date,
         zip1: zip1,
         //country: country,
-        city: list.city.name,
+        city: list.location.name,
         //  current
-        temperatureNow: list.list[0].main.temp,
-        temperatureNowHigh: list.list[0].main.temp_max,
-        conditionsToday: list.list[0].weather[0].description,
-        conditionsID: list.list[0].weather[0].main,
-        windSpeed: list.list[0].wind.speed,
+        temperatureNow: list.current.temp_c,
+        temperatureNowHigh: list.forecast.forecastday[0].day.maxtemp_c,
+        conditionsToday: list.current.condition.text,
+        conditionsID: list.current.condition.code,
+        windSpeed: list.current.wind_kph,
 
         //  tomorrow
-        temperatureTomorrow: list.list[7].main.temp,
-        conditionsTomorrow: list.list[7].weather[0].description,
-        conditionsIDTomorrow: list.list[7].weather[0].main,
+        temperatureTomorrow: list.forecast.forecastday[1].day.avgtemp_c,
+        conditionsTomorrow: list.forecast.forecastday[1].day.condition.text,
+        conditionsIDTomorrow: list.forecast.forecastday[1].day.condition.code,
 
         // day 3
-        temperatureDay3: list.list[15].main.temp,
-        conditionsDay3: list.list[15].weather[0].description,
-        conditionsID3: list.list[15].weather[0].main,
+        temperatureDay3: list.forecast.forecastday[2].day.avgtemp_c,
+        conditionsDay3: list.forecast.forecastday[2].day.condition.text,
+        conditionsID3: list.forecast.forecastday[2].day.condition.code,
 
         // day 4
-        temperatureDay4: list.list[23].main.temp,
-        conditionsDay4: list.list[23].weather[0].description,
-        conditionsID4: list.list[23].weather[0].main,
+        temperatureDay4: list.forecast.forecastday[1].day.avgtemp_c,
+        conditionsDay4: list.forecast.forecastday[1].day.condition.text,
+        conditionsID4: list.forecast.forecastday[1].day.condition.code,
 
         // day 5
-        temperatureDay5: list.list[23].main.temp,
-        conditionsDay5: list.list[23].weather[0].description,
-        conditionsID5: list.list[23].weather[0].main,
+        temperatureDay5: list.forecast.forecastday[2].day.avgtemp_c,
+        conditionsDay5: list.forecast.forecastday[2].day.condition.text,
+        conditionsID5: list.forecast.forecastday[2].day.condition.code,
 
         error: ""
       });
@@ -117,7 +117,7 @@ class App extends React.Component {
       this.setState({
         error: "Enter a city and country" // error message
       });
-    }
+    } 
   };
   render() {
     return (
@@ -126,10 +126,10 @@ class App extends React.Component {
           <Form zip1={this.state.zip1} getWeather={this.getWeather} />
           <Weather
             zip1={this.state.zip1}
-            zip2={this.zip2}
-            zip3={this.zip3}
-            zip4={this.zip4}
-            zip5={this.zip5}
+            // zip2={this.zip2}
+            // zip3={this.zip3}
+            // zip4={this.zip4}
+            // zip5={this.zip5}
             // props to pass for all weather information
             date={this.state.date}
             //country={this.state.country}

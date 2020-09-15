@@ -191,6 +191,7 @@ const SunnyImage = styled.div`
 class Weather extends React.Component {
   render() {
     const date = new Date();
+    console.log(date);
     return (
       <div>
         {this.props.zip1 && (
@@ -198,7 +199,7 @@ class Weather extends React.Component {
             <Today>
               <InlineDate>
                 <p>
-                  <Moment format="MMMM do[, ] YYYY">{date}</Moment>
+                  <Moment format="MMMM Do[, ] YYYY">{date}</Moment>
                 </p>
                 <h2> {this.props.city}</h2>
               </InlineDate>
@@ -221,15 +222,15 @@ class Weather extends React.Component {
                 {/* today */}
                 <p>Today</p>
                 <div>
-                  {this.props.conditionsID === "Clouds" && (
+                  {(this.props.conditionsID === 1003 || this.props.conditionsID === 1006) && (
                     <PartlyCloudyImage />
                   )}
-                  {this.props.conditionsID === "Rain" && <RainImage />}
-                  {this.props.conditionsID === "Drizzle" && <RainImage />}
-                  {this.props.conditionsID === "Thunderstorm" && <StormImage />}
-                  {this.props.conditionsID === "Snow" && <SnowImage />}
-                  {this.props.conditionsID === "Atmosphere" && <FogImage />}
-                  {this.props.conditionsID === "Clear" && <SunnyImage />}
+                  {this.props.conditionsID === 1063 && <RainImage />}
+                  {this.props.conditionsID === 1186 && <RainImage />}
+                  {this.props.conditionsID === 1243 && <StormImage />}
+                  {(this.props.conditionsID === 1030 || this.props.conditionsID === 1114) && <SnowImage />}
+                  {this.props.conditionsID === 1009 && <FogImage />}
+                  {this.props.conditionsID === 1000 && <SunnyImage />}
                 </div>
                 <FutureTemp>
                   {JSON.stringify(this.props.temperatureNow).slice(0, 2)}&#176;
@@ -243,23 +244,15 @@ class Weather extends React.Component {
                   </Moment>
                 </p>
                 <div>
-                  {this.props.conditionsIDTomorrow === "Clouds" && (
+                  {(this.props.conditionsIDTomorrow === 1003 || this.props.conditionsIDTomorrow === 1006) && (
                     <PartlyCloudyImage />
                   )}
-                  {this.props.conditionsIDTomorrow === "Rain" && <RainImage />}
-                  {this.props.conditionsIDTomorrow === "Drizzle" && (
-                    <RainImage />
-                  )}
-                  {this.props.conditionsIDTomorrow === "Thunderstorm" && (
-                    <StormImage />
-                  )}
-                  {this.props.conditionsIDTomorrow === "Snow" && <SnowImage />}
-                  {this.props.conditionsIDTomorrow === "Atmosphere" && (
-                    <FogImage />
-                  )}
-                  {this.props.conditionsIDTomorrow === "Clear" && (
-                    <SunnyImage />
-                  )}
+                  {this.props.conditionsIDTomorrow === 1063 && <RainImage />}
+                  {this.props.conditionsIDTomorrow === 1186 && <RainImage />}
+                  {this.props.conditionsIDTomorrow === 1243 && <StormImage />}
+                  {(this.props.conditionsIDTomorrow === 1030 || this.props.conditionsIDTomorrow === 1114) && <SnowImage />}
+                  {this.props.conditionsIDTomorrow === 1009 && <FogImage />}
+                  {this.props.conditionsIDTomorrow === 1000 && <SunnyImage />}
                 </div>
                 <FutureTemp>
                   {JSON.stringify(this.props.temperatureTomorrow).slice(0, 2)}
@@ -275,17 +268,15 @@ class Weather extends React.Component {
                   </Moment>
                 </p>
                 <div>
-                  {this.props.conditionsID3 === "Clouds" && (
+                  {(this.props.conditionsID3 === 1003 || this.props.conditionsID3 === 1006) && (
                     <PartlyCloudyImage />
                   )}
-                  {this.props.conditionsID3 === "Rain" && <RainImage />}
-                  {this.props.conditionsID3 === "Drizzle" && <RainImage />}
-                  {this.props.conditionsID3 === "Thunderstorm" && (
-                    <StormImage />
-                  )}
-                  {this.props.conditionsID3 === "Snow" && <SnowImage />}
-                  {this.props.conditionsID3 === "Atmosphere" && <FogImage />}
-                  {this.props.conditionsID3 === "Clear" && <SunnyImage />}
+                  {this.props.conditionsID3 === 1063 && <RainImage />}
+                  {this.props.conditionsID3 === 1186 && <RainImage />}
+                  {this.props.conditionsID3 === 1243 && <StormImage />}
+                  {(this.props.conditionsID3 === 1030 || this.props.conditionsID3 === 1114) && <SnowImage />}
+                  {this.props.conditionsID3 === 1009 && <FogImage />}
+                  {this.props.conditionsID3 === 1000 && <SunnyImage />}
                 </div>
                 <FutureTemp>
                   {JSON.stringify(this.props.temperatureDay3).slice(0, 2)}&#176;
@@ -299,17 +290,15 @@ class Weather extends React.Component {
                   </Moment>
                 </p>
                 <div>
-                  {this.props.conditionsID4 === "Clouds" && (
+                  {(this.props.conditionsID4 === 1003 || this.props.conditionsID4 === 1006) && (
                     <PartlyCloudyImage />
                   )}
-                  {this.props.conditionsID4 === "Rain" && <RainImage />}
-                  {this.props.conditionsID4 === "Drizzle" && <RainImage />}
-                  {this.props.conditionsID4 === "Thunderstorm" && (
-                    <StormImage />
-                  )}
-                  {this.props.conditionsID4 === "Snow" && <SnowImage />}
-                  {this.props.conditionsID4 === "Atmosphere" && <FogImage />}
-                  {this.props.conditionsID4 === "Clear" && <SunnyImage />}
+                  {this.props.conditionsID4 === 1063 && <RainImage />}
+                  {this.props.conditionsID4 === 1186 && <RainImage />}
+                  {this.props.conditionsID4 === 1243 && <StormImage />}
+                  {(this.props.conditionsID4 === 1030 || this.props.conditionsID4 === 1114) && <SnowImage />}
+                  {this.props.conditionsID4 === 1009 && <FogImage />}
+                  {this.props.conditionsID4 === 1000 && <SunnyImage />}
                 </div>
                 <FutureTemp>
                   {JSON.stringify(this.props.temperatureDay4).slice(0, 2)}&#176;
@@ -323,17 +312,15 @@ class Weather extends React.Component {
                   </Moment>
                 </p>
                 <div>
-                  {this.props.conditionsID5 === "Clouds" && (
+                  {(this.props.conditionsID5 === 1003 || this.props.conditionsID5 === 1006) && (
                     <PartlyCloudyImage />
                   )}
-                  {this.props.conditionsID5 === "Rain" && <RainImage />}
-                  {this.props.conditionsID5 === "Drizzle" && <RainImage />}
-                  {this.props.conditionsID5 === "Thunderstorm" && (
-                    <StormImage />
-                  )}
-                  {this.props.conditionsID5 === "Snow" && <SnowImage />}
-                  {this.props.conditionsID5 === "Atmosphere" && <FogImage />}
-                  {this.props.conditionsID5 === "Clear" && <SunnyImage />}
+                  {this.props.conditionsID5 === 1063 && <RainImage />}
+                  {this.props.conditionsID5 === 1186 && <RainImage />}
+                  {this.props.conditionsID5 === 1243 && <StormImage />}
+                  {(this.props.conditionsID5 === 1030 || this.props.conditionsID5 === 1114) && <SnowImage />}
+                  {this.props.conditionsID5 === 1009 && <FogImage />}
+                  {this.props.conditionsID5 === 1000 && <SunnyImage />}
                 </div>
                 <FutureTemp>
                   {JSON.stringify(this.props.temperatureDay5).slice(0, 2)}&#176;
